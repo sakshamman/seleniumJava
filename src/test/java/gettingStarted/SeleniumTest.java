@@ -1,5 +1,6 @@
 package gettingStarted;
 
+import extentions.UIElementExtentions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,14 +30,22 @@ public class SeleniumTest {
         WebElement element = driver.findElement(locator);
         element.click();
 
-        By txtUserName = By.name("UserName");
+        /*By txtUserName = By.name("UserName");
         WebElement txtUserNameElement = driver.findElement(txtUserName);
-        txtUserNameElement.sendKeys("admin");
+        txtUserNameElement.sendKeys("admin");*/
+
+        //driver.findElement(By.id("UserName")).sendKeys("admin");
+
+        UIElementExtentions.performEnterText(driver,By.name("UserName"), "admin");
+
+
 
         //driver.findElement(By.linkText("Log In")).click();
 
         //enter password
         driver.findElement(By.id("Password")).sendKeys("password");
+
+        UIElementExtentions.performEnterText(driver,By.name("UserName"), "admin");
 
         //click login button
         driver.findElement(By.cssSelector(".btn")).click();
