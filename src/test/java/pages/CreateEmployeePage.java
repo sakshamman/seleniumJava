@@ -1,9 +1,11 @@
 package pages;
 
+import extensions.UIElementExtentions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 
 public class CreateEmployeePage {
 
@@ -35,12 +37,12 @@ public class CreateEmployeePage {
 
 
     public EmployeeListPage createNewEmployee(String name, String durationWorked, String email, String salary, String grade){
-        UIElementExtensions.performEnterText(txtName, name);
-        UIElementExtensions.performEnterText(txtDurationWorked, durationWorked);
-        UIElementExtensions.performEnterText(txtSalary, salary);
-        UIElementExtensions.performEnterText(txtEmail, email);
-        UIElementExtensions.performDropDownSelectionByText(ddlGrade, grade);
-        UIElementExtensions.performClick(btnCreate);
+        UIElementExtentions.performClick(btnCreate);
+        UIElementExtentions.performEnterText(txtSalary, salary);
+        UIElementExtentions.performEnterText(txtEmail, email);
+        UIElementExtentions.performDropDownSelectionByText(ddlGrade, grade);
+        UIElementExtentions.performEnterText(txtDurationWorked, durationWorked);
+        UIElementExtentions.performEnterText(txtName, name);
         return new EmployeeListPage(driver);
     }
 }
